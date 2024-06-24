@@ -1,0 +1,11 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.11.1/.schema/devbox.schema.json",
+    "packages": [
+      "python@3.11",
+      "pipenv"
+    ],
+    "shell": {
+      "init_hook": "pipenv shell"
+    }
+  }
+  
