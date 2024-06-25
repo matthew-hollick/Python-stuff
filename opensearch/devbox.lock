@@ -1,6 +1,70 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "icdiff@latest": {
+      "last_modified": "2024-06-12T20:55:33Z",
+      "resolved": "github:NixOS/nixpkgs/a9858885e197f984d92d7fe64e9fff6b2e488d40#icdiff",
+      "source": "devbox-search",
+      "version": "1.9.5",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/g2msfljv7s3w735vkh2xp2gk3nqhml90-icdiff-1.9.5",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/gz0ais4pkc3n1d7s6db1di57jvm3ckb9-icdiff-1.9.5-dist"
+            }
+          ],
+          "store_path": "/nix/store/g2msfljv7s3w735vkh2xp2gk3nqhml90-icdiff-1.9.5"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/sddzz1fkgn6lp742387q3v5x8kcad6m0-icdiff-1.9.5",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/aynmrvyf6baa6l8c648yhgn3fgw5hs9v-icdiff-1.9.5-dist"
+            }
+          ],
+          "store_path": "/nix/store/sddzz1fkgn6lp742387q3v5x8kcad6m0-icdiff-1.9.5"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/yz1x9spilnflwmx1libr9lrlkfsn3ial-icdiff-1.9.5",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/glld19zvninj4xbv28ynklkc825zl94i-icdiff-1.9.5-dist"
+            }
+          ],
+          "store_path": "/nix/store/yz1x9spilnflwmx1libr9lrlkfsn3ial-icdiff-1.9.5"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rqbv1y7ddrrj6h05ifkrs77b5wpzj86w-icdiff-1.9.5",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/2q4j8kj1acckp27dna168az9bnlmmmqh-icdiff-1.9.5-dist"
+            }
+          ],
+          "store_path": "/nix/store/rqbv1y7ddrrj6h05ifkrs77b5wpzj86w-icdiff-1.9.5"
+        }
+      }
+    },
     "pipenv": {
       "resolved": "github:NixOS/nixpkgs/75a52265bda7fd25e06e3a67dee3f0354e73243c#pipenv",
       "source": "nixpkg",

@@ -3,7 +3,8 @@
   "packages": [
     "python@3.11",
     "pipenv",
-    "pre-commit@latest"
+    "pre-commit@latest",
+    "icdiff@latest"
   ],
   "shell": {
     "init_hook": "pipenv shell"
