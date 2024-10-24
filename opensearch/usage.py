@@ -1,8 +1,9 @@
-from opensearchpy import OpenSearch, RequestsHttpConnection
 import csv
 import re
 from collections import defaultdict
+
 import urllib3
+from opensearchpy import OpenSearch, RequestsHttpConnection
 
 # Disable warnings about invalid certificates
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

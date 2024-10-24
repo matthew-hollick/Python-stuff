@@ -1,8 +1,9 @@
-from opensearchpy import OpenSearch, RequestsHttpConnection
 import random
 import string
 from datetime import datetime, timedelta
+
 import urllib3
+from opensearchpy import OpenSearch, RequestsHttpConnection
 
 # Certs are broken
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

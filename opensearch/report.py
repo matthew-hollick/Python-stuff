@@ -1,8 +1,9 @@
-from opensearchpy import OpenSearch, RequestsHttpConnection, helpers
 import re
 from collections import defaultdict
-import urllib3
 from datetime import datetime
+
+import urllib3
+from opensearchpy import OpenSearch, RequestsHttpConnection, helpers
 
 # Broken certs
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

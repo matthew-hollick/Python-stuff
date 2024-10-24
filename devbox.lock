@@ -1,0 +1,181 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "helix@latest": {
+      "last_modified": "2024-10-13T23:44:06Z",
+      "resolved": "github:NixOS/nixpkgs/d4f247e89f6e10120f911e2e2d2254a050d0f732#helix",
+      "source": "devbox-search",
+      "version": "24.07",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/5cwkl3mvl3h0dqdxp1nsrjm11jq6cvhp-helix-24.07",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/5cwkl3mvl3h0dqdxp1nsrjm11jq6cvhp-helix-24.07"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/c17wyrwy54m4vy862rll4d2zf59kngj8-helix-24.07",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/c17wyrwy54m4vy862rll4d2zf59kngj8-helix-24.07"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pjk50hk1ixf57s8jdk859qal1zh44id3-helix-24.07",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pjk50hk1ixf57s8jdk859qal1zh44id3-helix-24.07"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/nilwgpyi9n5vqz8wy410i13hzg3y1k9w-helix-24.07",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/nilwgpyi9n5vqz8wy410i13hzg3y1k9w-helix-24.07"
+        }
+      }
+    },
+    "pipenv@latest": {
+      "last_modified": "2024-10-13T23:44:06Z",
+      "resolved": "github:NixOS/nixpkgs/d4f247e89f6e10120f911e2e2d2254a050d0f732#pipenv",
+      "source": "devbox-search",
+      "version": "2024.1.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rr7d9mhp9x7crzv3lgv7gm85scf7qp3y-pipenv-2024.1.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/xhjlsffdwixw3dnv925rvr2d1zqrk9qw-pipenv-2024.1.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/rr7d9mhp9x7crzv3lgv7gm85scf7qp3y-pipenv-2024.1.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xyvkxcv2406xr9m15ap782i71g1790s9-pipenv-2024.1.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/4s4v687ckwc92gjvz5lh2fibg37lfmwv-pipenv-2024.1.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/xyvkxcv2406xr9m15ap782i71g1790s9-pipenv-2024.1.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9jglmp7ng6hc2a3ksaaipwyf9ccnr4in-pipenv-2024.1.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/wryrqjfyhmkr2jkaf057af06gkygnk8l-pipenv-2024.1.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/9jglmp7ng6hc2a3ksaaipwyf9ccnr4in-pipenv-2024.1.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zpya6pq7bglw78nzhmq5ab1vajy2s55a-pipenv-2024.1.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/a6szxhihf46w67f63x1pg2v6ihkdp630-pipenv-2024.1.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/zpya6pq7bglw78nzhmq5ab1vajy2s55a-pipenv-2024.1.0"
+        }
+      }
+    },
+    "pre-commit@latest": {
+      "last_modified": "2024-10-16T02:16:09Z",
+      "resolved": "github:NixOS/nixpkgs/70cc7b62f2b448a487de36e1fd714693c59c4719#pre-commit",
+      "source": "devbox-search",
+      "version": "3.7.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/flzj4pzl43m29ml7brh4gabw9rxrvrml-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/87dhz8r6jwy3487h78bbivhw9mg8g8h9-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/flzj4pzl43m29ml7brh4gabw9rxrvrml-pre-commit-3.7.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jddjbmxg9rlawirkr8pg9dlj0xma9w1q-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/2lpy8sfhcnn33ia5c77g5gyg1zz6b0qg-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/jddjbmxg9rlawirkr8pg9dlj0xma9w1q-pre-commit-3.7.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2ycxh3vvj0b1bk2pgj84jg88l49hbwq3-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/0wfmhzk48ziaw6vd26shy5mjazg9qsjc-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/2ycxh3vvj0b1bk2pgj84jg88l49hbwq3-pre-commit-3.7.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zp9vk1y2fzlavzaz67ikipgh9hq58pxr-pre-commit-3.7.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/k3hc0dqi88iik1n1kjc9ddp6rf9wp11v-pre-commit-3.7.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/zp9vk1y2fzlavzaz67ikipgh9hq58pxr-pre-commit-3.7.1"
+        }
+      }
+    }
+  }
+}
