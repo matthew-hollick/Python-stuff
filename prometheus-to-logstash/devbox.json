@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
+  "packages": [
+    "uv@latest",
+    "pre-commit@latest",
+    "python@latest",
+    "helix@latest",
+    "direnv@latest",
+    "python-language-server@latest",
+    "prometheus-snmp-exporter@latest",
+    "logstash@latest",
+    "tree@latest",
+    "libpcap@latest",
+    "tcpflow@latest",
+    "ruff@latest",
+    "icdiff@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      ". $VENV_DIR/bin/activate",
+      "mkdir -p services/{logstash,snmp_exporter}/{etc,log}"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

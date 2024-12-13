@@ -1,0 +1,18 @@
+version: "0.5"
+
+processes:
+  prometheus-snmp-exporter:
+    command: snmp_exporter
+    availability:
+      restart: "always"
+    log_location: "./services/snmp_exporter/log/snmp_exporter.log"
+  logstash:
+    command: logstash -f ./services/logstash/etc/logstash.conf -l ./services/logstash/log/logstash-process.log  --path.data ./services/logstash/data
+    availability:
+      restart: "no"
+    log_location: "./services/logstash/log/logstash.log"
+  prometheus-to-logstash:
+    command: python prometheus-to-logstash.py --prometheus-url "http://localhost:9116/metrics" --logstash-url "http://localhost:8080" --enable-system-metrics --log-level DEBUG
+    availability:
+      restart: "no"
+    log_location: "./services/prometheus-to-logstash/log/prometheus-to-logstash.log"
