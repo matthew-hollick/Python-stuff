@@ -10,7 +10,6 @@ fpm \
   --force \
   --maintainer "Matthew Hollick <matthew@hedgehoganalytics.uk>" \
   --name prometheus-to-logstash \
-  --package prometheus-to-logstash \
   --input-type dir \
   --output-type deb \
   --version ${VERSION} \
@@ -22,4 +21,4 @@ fpm \
   --deb-default prometheus-to-logstash.default \
   --description "Pull data from a prometheus exporter and forward it to logstash" \
   prometheus-to-logstash.py=/usr/local/bin/prometheus-to-logstash.py
- 
+
