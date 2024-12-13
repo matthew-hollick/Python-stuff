@@ -13,7 +13,8 @@
     "libpcap@latest",
     "tcpflow@latest",
     "ruff@latest",
-    "icdiff@latest"
+    "icdiff@latest",
+    "fpm@latest"
   ],
   "shell": {
     "init_hook": [

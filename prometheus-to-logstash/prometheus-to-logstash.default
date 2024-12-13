@@ -1,0 +1,14 @@
+#/etc/default/prometheus-to-logstash 
+
+# Prometheus configuration
+PROM_HOST=localhost
+PROM_PORT=9116
+TARGETS=example
+
+# Logstash configuration
+LOGSTASH_HOST=localhost
+LOGSTASH_PORT=8080
+
+# Additional command line options
+# [--interval INTERVAL] [--timeout TIMEOUT] [--enable-system-metrics] [--system-metrics-interval SYSTEM_METRICS_INTERVAL] [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+ADDITIONAL_OPTIONS="--enable-system-metrics"

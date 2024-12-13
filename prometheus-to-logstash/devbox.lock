@@ -49,6 +49,54 @@
         }
       }
     },
+    "fpm@latest": {
+      "last_modified": "2024-11-28T07:51:56Z",
+      "resolved": "github:NixOS/nixpkgs/226216574ada4c3ecefcbbec41f39ce4655f78ef#fpm",
+      "source": "devbox-search",
+      "version": "1.15.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0ksigca7gl7vqzs23xhhh36r56jlvmxn-fpm-1.15.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0ksigca7gl7vqzs23xhhh36r56jlvmxn-fpm-1.15.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/pl1a78xlgqdf86nv1cfwbafxh2fhhlaj-fpm-1.15.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/pl1a78xlgqdf86nv1cfwbafxh2fhhlaj-fpm-1.15.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/8wbd4mvcwlvya08045v1yjp08x75f3va-fpm-1.15.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/8wbd4mvcwlvya08045v1yjp08x75f3va-fpm-1.15.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7z8y85jjy5lff92c2yz491fgrsvq04sy-fpm-1.15.1",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/7z8y85jjy5lff92c2yz491fgrsvq04sy-fpm-1.15.1"
+        }
+      }
+    },
     "helix@latest": {
       "last_modified": "2024-11-16T04:25:12Z",
       "resolved": "github:NixOS/nixpkgs/34a626458d686f1b58139620a8b2793e9e123bba#helix",
