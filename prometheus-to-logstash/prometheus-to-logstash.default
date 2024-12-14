@@ -3,7 +3,7 @@
 # Prometheus configuration
 PROM_HOST=localhost
 PROM_PORT=9116
-TARGETS=""
+TARGET="192.168.1.1"
 
 # Logstash configuration
 LOGSTASH_HOST=localhost

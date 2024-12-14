@@ -12,7 +12,8 @@ EnvironmentFile=/etc/default/prometheus-to-logstash
 ExecStartPre=/usr/bin/wait-for-it -t 300 ${LOGSTASH_HOST}:${LOGSTASH_PORT}
 ExecStartPre=/usr/bin/wait-for-it -t 300 ${PROM_HOST}:${PROM_PORT}
 ExecStart=/usr/bin/python3 /usr/local/bin/prometheus-to-logstash.py \
-    --prometheus-url http://${PROM_HOST}:${PROM_PORT}/metrics?${TARGETS} \
+    --prometheus-url http://${PROM_HOST}:${PROM_PORT} \
+    --target ${TARGET} \
     --logstash-url http://${LOGSTASH_HOST}:${LOGSTASH_PORT} \
     ${ADDITIONAL_OPTIONS}
 Restart=always

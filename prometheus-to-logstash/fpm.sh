@@ -24,9 +24,10 @@ fpm \
   --output-type deb \
   --version ${VERSION} \
   --before-install before-install.sh \
+  --after-install after-install.sh \
   --deb-systemd prometheus-to-logstash.service \
   --deb-systemd-enable \
   --deb-systemd-restart-after-upgrade \
   --deb-default prometheus-to-logstash.default \
   --description "Pull data from a prometheus exporter and forward it to logstash" \
-  prometheus-to-logstash.py=/usr/local/bin/prometheus-to-logstash.py logstash-file-output.conf=/etc/logstash/conf.d/logstash-file-output.conf logstash-http-input.conf=/etc/logstash/conf.d/logstash-http-input.conf
+  prometheus-to-logstash.py=/usr/local/bin/prometheus-to-logstash.py logstash-file-output.conf=/etc/logstash/conf.d/logstash-file-output.conf logstash-http-input.conf=/etc/logstash/conf.d/logstash-http-input.conf snmp-local.yml=/etc/prometheus/snmp-local.yml

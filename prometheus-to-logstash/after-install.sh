@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+sed -i 's|^ARGS=""$|ARGS="--config.file=/etc/prometheus/*yml"|' /etc/default/prometheus-snmp-exporter
+
 #pip3 install                  \
 #    backoff==2.2.1            \
 #    certifi==2024.8.30        \
