@@ -34,33 +34,45 @@ def setup_logging(log_level: str = 'INFO') -> None:
 
 
 class PrometheusCollector:
-    def __init__(self, url: str, target: str, timeout: int = 10):
+    def __init__(self, url: str, targets: list[str], timeout: int = 10):
         self.base_url = url
-        self.target = target
+        self.targets = targets
         self.timeout = timeout
         self.logger = logging.getLogger(__name__)
 
     def collect(self) -> list:
-        try:
-            url = f"{self.base_url}/snmp?target={self.target}"
-            response = session.get(url, timeout=self.timeout)
-            response.raise_for_status()
-            metrics = []
-            for family in text_string_to_metric_families(response.text):
-                for sample in family.samples:
-                    metric = {
-                        'name': sample.name,
-                        'labels': sample.labels,
-                        'value': sample.value,
-                        'timestamp': int(time.time() * 1000),  # Milliseconds
-                    }
-                    metrics.append(metric)
-            return metrics
-        except Exception as e:
-            self.logger.error(
-                f"Failed to collect Prometheus metrics: {str(e)}",
-            )
-            return []
+        all_metrics = []
+        for target in self.targets:
+            try:
+                url = f"{self.base_url}/snmp?target={target}"
+                self.logger.debug(f"Collecting metrics from {url}")
+                response = session.get(url, timeout=self.timeout)
+                response.raise_for_status()
+
+                metrics = []
+                for family in text_string_to_metric_families(response.text):
+                    for sample in family.samples:
+                        metric = {
+                            'name': sample.name,
+                            'labels': sample.labels,
+                            'value': sample.value,
+                            # Milliseconds
+                            'timestamp': int(time.time() * 1000),
+                            'target': target,
+                        }
+                        metrics.append(metric)
+                all_metrics.extend(metrics)
+                self.logger.debug(
+                    f"Collected {len(metrics)} metrics from {target}",
+                )
+
+            except Exception as e:
+                self.logger.error(
+                    f"Failed to collect metrics from {target}: {str(e)}",
+                )
+                continue
+
+        return all_metrics
 
 
 class SystemMetricsCollector:
@@ -142,9 +154,10 @@ class PrometheusToLogstash:
     def __init__(self, config: dict[str, Any]):
         self.config = config
         self.logger = logging.getLogger(__name__)
+        self.hostname = socket.gethostname()
         self.prometheus_collector = PrometheusCollector(
             url=config['prometheus_url'],
-            target=config['target'],
+            targets=config['targets'],
             timeout=config['timeout'],
         )
         self.system_collector = (
@@ -155,7 +168,6 @@ class PrometheusToLogstash:
         self.metrics_collected = 0
         self.metrics_sent = 0
         self.errors = 0
-        self.hostname = socket.gethostname()
 
     def send_to_logstash(self, data: dict[str, Any]) -> bool:
         try:
@@ -215,7 +227,7 @@ class PrometheusToLogstash:
                         'hostname': self.hostname,
                     },
                     'device': {
-                        'ip': self.config['target'],
+                        'ip': metric['target'],
                     },
                     'metric_name': metric['name'],
                     'metric_value': metric['value'],
@@ -292,7 +304,7 @@ def create_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         '--target',
         required=True,
-        help='Target device to monitor (will be appended as ?target=<target> to the URL)',
+        help='Target devices to monitor (comma-separated list)',
     )
     parser.add_argument(
         '--logstash-url',
@@ -359,10 +371,13 @@ def main() -> None:
     signal.signal(signal.SIGTERM, signal_handler)
     setup_logging(args.log_level)
 
+    # Split comma-separated targets into a list
+    targets = [t.strip() for t in args.target.split(',')]
+
     config = {
         'prometheus_url': args.prometheus_url,
         'logstash_url': args.logstash_url,
-        'target': args.target,
+        'targets': targets,
         'interval': args.interval,
         'timeout': args.timeout,
         'enable_system_metrics': args.enable_system_metrics,
