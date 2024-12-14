@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
-pip3 install                  \
-    backoff==2.2.1            \
-    certifi==2024.8.30        \
-    charset-normalizer==3.4.0 \
-    idna==3.10                \
-    prometheus_client==0.21.1 \
-    psutil==6.1.0             \
-    requests==2.32.3          \
-    tenacity==9.0.0           \
-    urllib3==2.2.3
+#pip3 install                  \
+#    backoff==2.2.1            \
+#    certifi==2024.8.30        \
+#    charset-normalizer==3.4.0 \
+#    idna==3.10                \
+#    prometheus_client==0.21.1 \
+#    psutil==6.1.0             \
+#    requests==2.32.3          \
+#    tenacity==9.0.0           \
+#    urllib3==2.2.3
 
 # Verify installations
 #echo "Verifying installations..."
