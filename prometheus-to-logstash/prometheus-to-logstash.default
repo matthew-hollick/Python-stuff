@@ -1,4 +1,4 @@
-#/etc/default/prometheus-to-logstash 
+#/etc/default/prometheus-to-logstash
 
 # Prometheus configuration
 PROM_HOST=localhost
