@@ -32,11 +32,28 @@ class PrometheusCollector:
         self.timeout = timeout
         self.logger = logging.getLogger(__name__)
     
+    def parse_target(self, target: str) -> Dict[str, str]:
+        """Parse target string into components."""
+        parts = target.split('&')
+        result = {
+            'host': parts[0],  # The IP/hostname is always the first part
+            'auth': '',
+            'module': ''
+        }
+        
+        for part in parts[1:]:
+            if '=' in part:
+                key, value = part.split('=', 1)
+                result[key] = value
+        
+        return result
+    
     def collect(self) -> list:
         all_metrics = []
         for target in self.targets:
             try:
-                url = f"{self.base_url}/snmp?target={target}"
+                target_info = self.parse_target(target)
+                url = f"{self.base_url}/snmp?target={target_info['host']}&auth={target_info['auth']}&module={target_info['module']}"
                 self.logger.debug(f"Collecting metrics from {url}")
                 response = session.get(url, timeout=self.timeout)
                 response.raise_for_status()
@@ -49,11 +66,15 @@ class PrometheusCollector:
                             "labels": sample.labels,
                             "value": sample.value,
                             "timestamp": int(time.time() * 1000),  # Milliseconds
-                            "target": target
+                            "target": target_info['host'],
+                            "tags": {
+                                "auth": target_info['auth'],
+                                "module": target_info['module']
+                            }
                         }
                         metrics.append(metric)
                 all_metrics.extend(metrics)
-                self.logger.debug(f"Collected {len(metrics)} metrics from {target}")
+                self.logger.debug(f"Collected {len(metrics)} metrics from {target_info['host']}")
                 
             except Exception as e:
                 self.logger.error(f"Failed to collect metrics from {target}: {str(e)}")
@@ -130,7 +151,14 @@ class PrometheusToLogstash:
                         "dataset": "prometheus.metrics"
                     },
                     "prometheus": {
-                        "metric": metric
+                        "metric": {
+                            "name": metric["name"],
+                            "labels": metric["labels"],
+                            "value": metric["value"],
+                            "timestamp": metric["timestamp"],
+                            "target": metric["target"]
+                        },
+                        "tags": metric["tags"]
                     }
                 }
                 self.send_to_logstash(data)
