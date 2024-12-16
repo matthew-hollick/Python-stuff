@@ -32,22 +32,19 @@ class PrometheusCollector:
         self.timeout = timeout
         self.logger = logging.getLogger(__name__)
     
-    def parse_target(self, target: str) -> Dict[str, Any]:
+    def parse_target(self, target: str) -> Dict[str, str]:
         """Parse target string into components."""
         parts = target.split('&')
         result = {
             'host': parts[0],  # The IP/hostname is always the first part
             'auth': '',
-            'module': []
+            'module': ''
         }
         
         for part in parts[1:]:
             if '=' in part:
                 key, value = part.split('=', 1)
-                if key == 'module':
-                    result[key] = value.split(',')
-                else:
-                    result[key] = value
+                result[key] = value
         
         return result
     
@@ -72,7 +69,7 @@ class PrometheusCollector:
                             "target": target_info['host'],
                             "tags": {
                                 "auth": target_info['auth'],
-                                "module": target_info['module']
+                                "module": target_info['module'].split(',') if target_info['module'] else []
                             }
                         }
                         metrics.append(metric)
