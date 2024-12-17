@@ -9,7 +9,7 @@ import logging
 import requests
 from prometheus_client.parser import text_string_to_metric_families
 from typing import Dict, Any, Optional, NoReturn
-from datetime import datetime
+from datetime import datetime, timezone
 import socket
 import platform
 
@@ -139,7 +139,7 @@ class PrometheusToLogstash:
             for metric in metrics:
                 self.metrics_collected += 1
                 data = {
-                    "@timestamp": datetime.utcfromtimestamp(metric["timestamp"] / 1000).isoformat() + "Z",
+                    "@timestamp": datetime.fromtimestamp(metric["timestamp"] / 1000, tz=timezone.utc).isoformat(),
                     "agent": {
                         "hostname": self.hostname,
                         "name": platform.node(),
