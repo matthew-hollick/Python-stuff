@@ -39,7 +39,7 @@ def generate_random_index_name(project):
     # I am so lazy.
     instance = str(random.randint(1, 999999)).zfill(6)
 
-    return f".ds-e.{team}.{environment}.{project}-{environment}.{name}.{year}.{week}-{instance}"
+    return f'.ds-e.{team}.{environment}.{project}-{environment}.{name}.{year}.{week}-{instance}'
 
 
 def create_and_populate_indices(client, num_indices, project):
@@ -60,7 +60,7 @@ def create_and_populate_indices(client, num_indices, project):
             client.index(index=index_name, body=doc)
 
         print(
-            f"Created and populated index: {index_name} with {num_docs} documents",
+            f'Created and populated index: {index_name} with {num_docs} documents',
         )
 
 
@@ -72,7 +72,7 @@ def main():
         create_and_populate_indices(client, num_indices, project)
         print('Done, done.')
     except Exception as e:
-        print(f"Bugger: {e}")
+        print(f'Bugger: {e}')
 
 
 if __name__ == '__main__':

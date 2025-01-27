@@ -87,7 +87,7 @@ def get_cpu_data():
                 'guest_nice': round(getattr(times, 'guest_nice', 0), 3),
             }
 
-        cpu_data['cores'][f"cpu{i}"] = core_data
+        cpu_data['cores'][f'cpu{i}'] = core_data
 
     return cpu_data
 

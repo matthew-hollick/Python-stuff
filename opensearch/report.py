@@ -30,7 +30,7 @@ def connect_to_opensearch():
 
 
 def parse_index_name(index_name, project):
-    pattern = rf"\.ds-e\.([^.]+)\.([^.]+)\.{project}-[^.]+\.([^.]+)\.(\d{{4}})\.(\d{{2}})-(\d+)"
+    pattern = rf'\.ds-e\.([^.]+)\.([^.]+)\.{project}-[^.]+\.([^.]+)\.(\d{{4}})\.(\d{{2}})-(\d+)'
     match = re.match(pattern, index_name)
     if match:
         return match.groups()
@@ -74,7 +74,7 @@ def upload_detailed_stats(client, stats, project):
             actions.append(action)
 
     helpers.bulk(client, actions)
-    print(f"Uploaded {len(actions)} detailed stats to OpenSearch.")
+    print(f'Uploaded {len(actions)} detailed stats to OpenSearch.')
 
 
 def upload_aggregated_stats(client, stats, project):
@@ -96,7 +96,7 @@ def upload_aggregated_stats(client, stats, project):
         actions.append(action)
 
     helpers.bulk(client, actions)
-    print(f"Uploaded {len(actions)} aggregated stats to OpenSearch.")
+    print(f'Uploaded {len(actions)} aggregated stats to OpenSearch.')
 
 
 def main():
@@ -111,7 +111,7 @@ def main():
         print('Stats have been successfully uploaded to OpenSearch.')
 
     except Exception as e:
-        print(f"Bugger: {e}")
+        print(f'Bugger: {e}')
 
 
 if __name__ == '__main__':

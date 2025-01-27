@@ -81,7 +81,7 @@ def main():
         host_ports = [tuple(hp.split(':')) for hp in args.hosts.split(',')]
         host_ports = [(host, int(port)) for host, port in host_ports]
     except Exception as e:
-        print(f"UNKNOWN - Error parsing host:port list: {e}")
+        print(f'UNKNOWN - Error parsing host:port list: {e}')
         sys.exit(UNKNOWN)
 
     # Check all certificates
@@ -105,23 +105,23 @@ def main():
         if result.error:
             status = CRITICAL
             output_lines.append(
-                f"{result.host}:{result.port} - ERROR: {result.error}",
+                f'{result.host}:{result.port} - ERROR: {result.error}',
             )
         elif result.days_remaining < args.days:
             status = CRITICAL
             output_lines.append(
-                f"{result.host}:{result.port} - CRITICAL: {result.days_remaining} days remaining "
+                f'{result.host}:{result.port} - CRITICAL: {result.days_remaining} days remaining '
                 f"(expires {result.expiry_date.strftime('%Y-%m-%d')})",
             )
         else:
             output_lines.append(
-                f"{result.host}:{result.port} - OK: {result.days_remaining} days remaining "
+                f'{result.host}:{result.port} - OK: {result.days_remaining} days remaining '
                 f"(expires {result.expiry_date.strftime('%Y-%m-%d')})",
             )
 
     # Print final status and output
     status_text = 'OK' if status == OK else 'CRITICAL'
-    print(f"SSL_CERT {status_text} - Certificate expiration check")
+    print(f'SSL_CERT {status_text} - Certificate expiration check')
     for line in output_lines:
         print(line)
 

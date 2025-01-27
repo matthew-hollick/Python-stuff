@@ -29,7 +29,7 @@ def connect_to_opensearch():
 
 
 def parse_index_name(index_name, project):
-    pattern = rf"\.ds-e\.([^.]+)\.([^.]+)\.{project}-[^.]+\.([^.]+)\.(\d{{4}})\.(\d{{2}})-(\d+)"
+    pattern = rf'\.ds-e\.([^.]+)\.([^.]+)\.{project}-[^.]+\.([^.]+)\.(\d{{4}})\.(\d{{2}})-(\d+)'
     match = re.match(pattern, index_name)
     if match:
         return match.groups()
@@ -112,7 +112,7 @@ def main():
         print('Aggregated CSV file has been created successfully.')
 
     except Exception as e:
-        print(f"Bugger: {e}")
+        print(f'Bugger: {e}')
 
 
 if __name__ == '__main__':
